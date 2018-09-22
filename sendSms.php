@@ -12,6 +12,7 @@ namespace Aliyun\DySDKLite\Sms;
 require_once "SignatureHelper.php";
 
 use Aliyun\DySDKLite\SignatureHelper;
+use Redis;
 
 
 function setcode($phone,$code) {
