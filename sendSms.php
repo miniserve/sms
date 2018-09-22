@@ -30,7 +30,7 @@ function sendSms() {
     $accessKeySecret = $_ENV["KeySecret"];
 
     // fixme 必填: 短信接收号码
-    $params["PhoneNumbers"] = $_GET["phone"]
+    $params["PhoneNumbers"] = $_GET["phone"];
 
     // fixme 必填: 短信签名，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
     $params["SignName"] = $_ENV["SignName"];
