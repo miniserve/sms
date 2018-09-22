@@ -1,3 +1,3 @@
 {
-    "require": {"php": "7.1.16"}
+    "require": {"php": "7.1.16","php-redis": "3.1.2"}
 }
