@@ -14,6 +14,20 @@ require_once "SignatureHelper.php";
 use Aliyun\DySDKLite\SignatureHelper;
 
 
+function setcode($phone,$code) {
+    $redis = new Redis(); 
+    $redis->connect($_ENV["REDIS_HOST"], $_ENV["REDIS_PORT"]); //连接Redis
+    $redis->auth($_ENV["REDIS_PASS"]); //密码验证
+    $redis->select(1);//选择数据库2
+    $redis->set( "code" .. $phone , $code); //设置测试key
+    $redis->expire($key,300); 
+    echo $redis->get("code" .. $phone);//输出value
+}
+
+function code(){
+    return "123456";
+}
+
 /**
  * 发送短信
  */
@@ -24,6 +38,7 @@ function sendSms() {
     // *** 需用户填写部分 ***
     // fixme 必填：是否启用https
     $security = false;
+    $code = code();
 
     // fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
     $accessKeyId = $_ENV["KeyId"];
@@ -40,7 +55,7 @@ function sendSms() {
 
     // fixme 可选: 设置模板参数, 假如模板中存在变量需要替换则为必填项
     $params['TemplateParam'] = Array (
-        "code" => "12345"
+        "code" => $code
     );
 
     // fixme 可选: 设置发送短信流水号
@@ -70,6 +85,10 @@ function sendSms() {
         )),
         $security
     );
+
+    if($content["Code"] == "OK") {
+        setcode($params["PhoneNumbers"],$code);
+    }
 
     return $content;
 }
