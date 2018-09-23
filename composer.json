@@ -1,3 +1,3 @@
 {
-    "require": {"php": "7.1.16","phpredis/phpredis":"*"}
+    "require": {"php": "7.1.16","predis/predis":"*"}
 }
