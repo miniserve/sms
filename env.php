@@ -6,4 +6,4 @@
 // }
 // phpinfo();s
 $redis = new Redis(); 
-print $redis;
+print_r( $redis );
