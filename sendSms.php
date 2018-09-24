@@ -86,11 +86,11 @@ function sendSms() {
         $security
     );
 
-    print_r($content.Code);
+    // print_r($content.Code);
 
-    if((string)$content.Code == "OK") {
-        setcode($params["PhoneNumbers"],$code);
-    }
+    // if((string)$content.Code == "OK") {
+    setcode($params["PhoneNumbers"],$code);
+    // }
 
     return $content;
 }
