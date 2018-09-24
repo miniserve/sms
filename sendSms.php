@@ -15,7 +15,7 @@ use Aliyun\DySDKLite\SignatureHelper;
 
 
 function setcode($phone,$code) {
-    $redis=new \Redis();
+    $redis=new Redis();
     $redis->connect($_ENV["REDIS_HOST"], $_ENV["REDIS_PORT"]); //连接Redis
     $redis->auth($_ENV["REDIS_PASS"]); //密码验证
     $redis->select(1);//选择数据库2
