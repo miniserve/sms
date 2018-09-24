@@ -19,7 +19,7 @@ function setcode($phone,$code) {
     $redis->connect($_ENV["REDIS_HOST"], $_ENV["REDIS_PORT"]); //连接Redis
     $redis->auth($_ENV["REDIS_PASS"]); //密码验证
     $redis->select(1);//选择数据库2
-    $redis->set( "code" .. $phone , $code); //设置测试key
+    $redis->set( $phone , $code); //设置测试key
     $redis->expire($key,300); 
     echo $redis->get("code" .. $phone);//输出value
 }
