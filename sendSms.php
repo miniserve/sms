@@ -86,7 +86,7 @@ function sendSms() {
         $security
     );
 
-    if($content["Code"] == "OK") {
+    if($content.Code == "OK") {
         setcode($params["PhoneNumbers"],$code);
     }
 
