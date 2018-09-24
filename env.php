@@ -12,3 +12,4 @@ $redis->select(1);//选择数据库2
 $redis->set( "code", "11111111111"); //设置测试key
 $redis->expire("11111111111",300); 
 echo $redis->get("11111111111");//输出value
+echo "sssssss";
