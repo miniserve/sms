@@ -4,6 +4,4 @@
 // foreach ($_ENV as $key => $value) {
 //   echo "{$key}: {$value}\n";
 // }
-// phpinfo();s
-$redis=new \Redis();
-print_r("redis");
+phpinfo();
