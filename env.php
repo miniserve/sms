@@ -5,5 +5,5 @@
 //   echo "{$key}: {$value}\n";
 // }
 // phpinfo();s
-$redis = new Redis(); 
-print_r( $redis );
+$redis=new Redis();
+print_r("redis");
