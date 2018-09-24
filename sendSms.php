@@ -21,7 +21,7 @@ function setcode($phone,$code) {
     $redis->select(1);//选择数据库2
     $redis->set( $phone , $code); //设置测试key
     $redis->expire($key,300); 
-    echo $redis->get("code" .. $phone);//输出value
+    echo $redis->get($phone);//输出value
 }
 
 function code(){
